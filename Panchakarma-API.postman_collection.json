@@ -1,0 +1,424 @@
+{
+  "info": {
+    "name": "Panchakarma Therapy Management API",
+    "description": "Complete API collection for Panchakarma Therapy Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health & Status",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health"]
+            }
+          }
+        },
+        {
+          "name": "Basic Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api",
+              "host": ["{{base_url}}"],
+              "path": ["api"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Patients",
+      "item": [
+        {
+          "name": "Get All Patients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/patients",
+              "host": ["{{base_url}}"],
+              "path": ["api", "patients"]
+            }
+          }
+        },
+        {
+          "name": "Get Patient by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/patients/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "patients", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"John Doe\", \"email\": \"john@example.com\", \"phone\": \"9876543210\", \"age\": 45, \"gender\": \"Male\", \"address\": \"123 Street, City\", \"medicalHistory\": \"Hypertension\", \"allergies\": \"Penicillin\", \"status\": \"Active\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/patients",
+              "host": ["{{base_url}}"],
+              "path": ["api", "patients"]
+            }
+          }
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"status\": \"Inactive\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/patients/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "patients", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Patient",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/patients/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "patients", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Doctors",
+      "item": [
+        {
+          "name": "Get All Doctors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/doctors",
+              "host": ["{{base_url}}"],
+              "path": ["api", "doctors"]
+            }
+          }
+        },
+        {
+          "name": "Create Doctor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Dr. Ayurveda\", \"email\": \"doctor@example.com\", \"phone\": \"9876543210\", \"specialization\": \"Panchakarma Therapy\", \"qualifications\": \"B.A.M.S, M.D. Ayurveda\", \"licenseNumber\": \"AY12345678\", \"yearsOfExperience\": 15, \"consultationFee\": 500, \"availability\": \"Available\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/doctors",
+              "host": ["{{base_url}}"],
+              "path": ["api", "doctors"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Therapies",
+      "item": [
+        {
+          "name": "Get All Therapies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/therapies",
+              "host": ["{{base_url}}"],
+              "path": ["api", "therapies"]
+            }
+          }
+        },
+        {
+          "name": "Create Therapy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Abhyanga Massage\", \"description\": \"Oil massage therapy\", \"duration\": 60, \"cost\": 1500, \"patientId\": \"PATIENT_ID\", \"doctorId\": \"DOCTOR_ID\", \"startDate\": \"2026-02-10T10:00:00Z\", \"endDate\": \"2026-02-20T10:00:00Z\", \"status\": \"Scheduled\", \"notes\": \"Full body massage\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/therapies",
+              "host": ["{{base_url}}"],
+              "path": ["api", "therapies"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Stock",
+      "item": [
+        {
+          "name": "Get All Stock",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/stock",
+              "host": ["{{base_url}}"],
+              "path": ["api", "stock"]
+            }
+          }
+        },
+        {
+          "name": "Get Low Stock Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/stock/low-stock/alert",
+              "host": ["{{base_url}}"],
+              "path": ["api", "stock", "low-stock", "alert"]
+            }
+          }
+        },
+        {
+          "name": "Create Stock Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"itemName\": \"Sesame Oil\", \"category\": \"Oils\", \"quantity\": 50, \"unit\": \"Liters\", \"unitCost\": 200, \"supplier\": \"Ayurveda Supplies\", \"expiryDate\": \"2026-12-31\", \"minimumStock\": 10}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/stock",
+              "host": ["{{base_url}}"],
+              "path": ["api", "stock"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing",
+      "item": [
+        {
+          "name": "Get All Billing",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/billing",
+              "host": ["{{base_url}}"],
+              "path": ["api", "billing"]
+            }
+          }
+        },
+        {
+          "name": "Get Pending Payments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/billing/pending/list",
+              "host": ["{{base_url}}"],
+              "path": ["api", "billing", "pending", "list"]
+            }
+          }
+        },
+        {
+          "name": "Create Billing",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"patientId\": \"PATIENT_ID\", \"invoiceNumber\": \"INV-001\", \"description\": \"Therapy Session\", \"amount\": 1500, \"paymentMethod\": \"Cash\", \"paymentStatus\": \"Pending\", \"dueDate\": \"2026-03-06\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/billing",
+              "host": ["{{base_url}}"],
+              "path": ["api", "billing"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Get All Reports",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/reports",
+              "host": ["{{base_url}}"],
+              "path": ["api", "reports"]
+            }
+          }
+        },
+        {
+          "name": "Create Report",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"patientId\": \"PATIENT_ID\", \"doctorId\": \"DOCTOR_ID\", \"reportType\": \"Medical Assessment\", \"findings\": \"Patient shows signs of vata imbalance\", \"recommendations\": \"Warm oil massage\", \"status\": \"Completed\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/reports",
+              "host": ["{{base_url}}"],
+              "path": ["api", "reports"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admins",
+      "item": [
+        {
+          "name": "Get All Admins",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/admins",
+              "host": ["{{base_url}}"],
+              "path": ["api", "admins"]
+            }
+          }
+        },
+        {
+          "name": "Create Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Admin User\", \"email\": \"admin@example.com\", \"password\": \"securepwd123\", \"phone\": \"9876543210\", \"role\": \"Admin\", \"permissions\": [\"read\", \"write\"], \"status\": \"Active\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admins",
+              "host": ["{{base_url}}"],
+              "path": ["api", "admins"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reminders",
+      "item": [
+        {
+          "name": "Send Reminder",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"patient@example.com\", \"phone\": \"9876543210\", \"patientId\": \"PATIENT_ID\", \"patientName\": \"John Doe\", \"date\": \"2026-02-15\", \"type\": \"appointment\"}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/reminders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "reminders"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:4000",
+      "type": "string"
+    }
+  ]
+}
